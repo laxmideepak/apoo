@@ -15,7 +15,15 @@ cd "/Users/deepakchowdary/Downloads/APOORVA PORTFOLIO" && python3 -m http.server
 
 Then open http://localhost:4321.
 
-## Deploy it
+## Live
+
+**https://apoorva-bandi.vercel.app**
+
+Deployed on Vercel from `laxmideepak/apoo`, so pushing to `main` redeploys.
+`vercel.json` sets `cleanUrls` and the cache policy; `vercel --prod` deploys
+by hand.
+
+## Deploy it elsewhere
 
 Every host below takes the folder as-is. No configuration.
 
@@ -24,9 +32,10 @@ Every host below takes the folder as-is. No configuration.
 - **GitHub Pages** — push the folder to a repo, then Settings → Pages → deploy from branch
 - **Cloudflare Pages** — connect the repo, leave the build command empty
 
-Set `<link rel="canonical">` and the `url` in the JSON-LD block in
-`index.html` to the real domain once you have one. They currently point at a
-placeholder, `https://apoorvabandi.com/`.
+`<link rel="canonical">`, `og:url` and the JSON-LD `url` all point at the
+Vercel URL. Change all three together if you move to a custom domain — a
+canonical aimed at a domain you do not own tells search engines the content
+belongs to someone else.
 
 ## What's in here
 
