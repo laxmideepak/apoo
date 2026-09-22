@@ -63,7 +63,6 @@ function createField(canvas, options = {}) {
     targetPrecision: 0.93,    /* the figure from the résumé        */
     padX: 0.045,
     padY: 0.10,
-    onSettled: null,
     onChange: null,
   }, options);
 
@@ -73,10 +72,10 @@ function createField(canvas, options = {}) {
   /* ---- population ------------------------------------------------------- */
   const pts = [];
   for (let i = 0; i < cfg.nNeg; i++) {
-    pts.push({ s: beta(cfg.negA, cfg.negB), v: rnd(), pos: 0, ph: rnd() * TAU, d: rnd() });
+    pts.push({ s: beta(cfg.negA, cfg.negB), v: rnd(), pos: 0 });
   }
   for (let i = 0; i < cfg.nPos; i++) {
-    pts.push({ s: beta(cfg.posA, cfg.posB), v: rnd(), pos: 1, ph: rnd() * TAU, d: rnd() });
+    pts.push({ s: beta(cfg.posA, cfg.posB), v: rnd(), pos: 1 });
   }
   pts.sort((a, b) => a.s - b.s);
 
@@ -328,7 +327,6 @@ function createField(canvas, options = {}) {
        and it costs battery for nothing. */
     if (entry >= 1 && intro >= 1 && !dragging) {
       running = false;
-      if (cfg.onSettled) { cfg.onSettled(); cfg.onSettled = null; }
       return;
     }
     requestAnimationFrame(frame);
@@ -406,23 +404,13 @@ function createField(canvas, options = {}) {
   start();
 
   return {
-    metrics,
     total: pts.length,
     /* The canvas caches its colours, so a theme change has to tell it to look
        again — otherwise the dots stay drawn in the previous theme's ink. */
     refresh() { readPalette(); dirty = true; draw(performance.now()); },
-    get threshold() { return thr; },
     setThreshold,
     target,
     focus(on) { hasFocus = on; dirty = true; draw(performance.now()); },
-    reset() { setThreshold(target); },
-    destroy() {
-      running = false;
-      ro.disconnect(); io.disconnect();
-      canvas.removeEventListener('pointerdown', onPointerDown);
-      canvas.removeEventListener('pointermove', onPointerMove);
-      window.removeEventListener('pointerup', onPointerUp);
-    },
   };
 }
 

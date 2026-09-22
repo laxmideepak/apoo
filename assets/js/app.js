@@ -12,7 +12,7 @@
 const { createField } = AB;
 const { createLatency } = AB;
 const { renderDiagram, HUMANA, MASTERCARD } = AB;
-const { STAGES, ECOSYSTEMS, TOTAL, CITED, countIn } = AB;
+const { STAGES, ECOSYSTEMS, TOTAL, countIn } = AB;
 const { initReveals, splitAll, runIntro } = AB;
 
 

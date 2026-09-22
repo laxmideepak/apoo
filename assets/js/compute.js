@@ -76,8 +76,10 @@ function harness(canvas, onResize, onFrame, fps) {
   });
   reduced.addEventListener('change', () => { stop(); resize(); start(); });
 
-  return { state, resize, start, stop,
-    destroy() { stop(); ro.disconnect(); io.disconnect(); } };
+  return {
+    resize, start,
+    destroy() { stop(); ro.disconnect(); io.disconnect(); },
+  };
 }
 
 function readVars(canvas, names) {

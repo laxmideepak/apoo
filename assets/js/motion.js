@@ -116,7 +116,6 @@ function runIntro() {
 }
 
 AB.initReveals = initReveals;
-AB.splitLines = splitLines;
 AB.splitAll = splitAll;
 AB.runIntro = runIntro;
 })(window.AB = (window.AB || {}));

@@ -134,8 +134,6 @@ const ECOSYSTEMS = [
 
 const TOTAL = STAGES.reduce((n, s) => n + s.items.length, 0);
 
-const CITED = STAGES.reduce(
-  (n, s) => n + s.items.filter(([, , c]) => c).length, 0);
 
 const countIn = (eco) =>
   eco === 'all'
@@ -145,6 +143,5 @@ const countIn = (eco) =>
 AB.STAGES = STAGES;
 AB.ECOSYSTEMS = ECOSYSTEMS;
 AB.TOTAL = TOTAL;
-AB.CITED = CITED;
 AB.countIn = countIn;
 })(window.AB = (window.AB || {}));

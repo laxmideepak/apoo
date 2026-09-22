@@ -72,10 +72,6 @@
     --accent-ink: #ffffff;
     --accent-soft: rgb(36 64 196 / 8%);
     --alert: #a32812;
-    --alert-dot: #d93a24;
-    --link: var(--accent);
-    --link-line: var(--accent);
-    --shadow: 0 1px 0 rgb(20 23 30 / 4%), 0 12px 32px -18px rgb(20 23 30 / 22%);
     --f-neg: rgb(18 19 23 / 30%);
     --f-neg-key: rgb(18 19 23 / 55%);
     --f-pos: #2440c4;
@@ -95,19 +91,16 @@
        point than a text face, so everything display-sized goes up and the
        leading comes down hard. */
     --t-display: clamp(4rem, 1rem + 16vw, 11.5rem);
-    --t-h2: clamp(2.5rem, 1rem + 6.6vw, 5.875rem);
-    --t-h3: 1.3125rem;      /* 21 */
+    --t-h2: clamp(2.5rem, 1rem + 6.6vw, 5.875rem);      /* 21 */
     --t-lede: clamp(1.1875rem, 1.06rem + 0.66vw, 1.5rem);
     --t-body: 1.0625rem;    /* 17 */
     --t-small: 0.9375rem;   /* 15 */
     --t-data: 0.8125rem;    /* 13 */
     --t-meta: 0.6875rem;    /* 11 */
-    --t-figure: clamp(2rem, 1.3rem + 3.1vw, 3.75rem);
 
     /* optical tracking, as a system rather than a guess */
     /* A serif needs far less negative tracking than a grotesque — over-tighten
        one and the counters close up. */
-    --tr-display: -0.025em;
     --tr-h2: -0.025em;
     --tr-h3: -0.01em;
     --tr-label: 0.13em;
@@ -136,7 +129,6 @@
     --dur-slow: 320ms;
     --dur-sig: 560ms;   /* the one signature beat, nothing else */
     --ease-enter: cubic-bezier(0.25, 1, 0.5, 1);
-    --ease-exit: cubic-bezier(0.5, 0, 0.75, 0);
     --ease-spatial: cubic-bezier(0.83, 0, 0.17, 1);
     --travel: 10px;
     --stagger: 40ms;
@@ -158,10 +150,6 @@
       --accent-ink: #121110;
       --accent-soft: rgb(155 176 232 / 13%);
       --alert: #e8836a;
-      --alert-dot: #e0654a;
-      --link: var(--ink);
-      --link-line: var(--accent);
-      --shadow: 0 1px 0 rgb(255 255 255 / 5%), 0 18px 44px -24px rgb(0 0 0 / 76%);
       --f-neg: rgb(238 231 219 / 26%);
       --f-neg-key: rgb(238 231 219 / 62%);
       --f-pos: #9bb0e8;
@@ -186,10 +174,6 @@
     --accent-ink: #121110;
     --accent-soft: rgb(155 176 232 / 13%);
     --alert: #e8836a;
-    --alert-dot: #e0654a;
-    --link: var(--ink);
-    --link-line: var(--accent);
-    --shadow: 0 1px 0 rgb(255 255 255 / 5%), 0 18px 44px -24px rgb(0 0 0 / 76%);
     --f-neg: rgb(238 231 219 / 26%);
     --f-neg-key: rgb(238 231 219 / 62%);
     --f-pos: #9bb0e8;
@@ -353,7 +337,6 @@
   .sec--tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
   .sec + .sec { border-block-start: 1px solid var(--rule); }
 
-  .stack-y { display: grid; gap: clamp(1rem, 2.4vw, 1.75rem); }
 }
 
 /* ---------------------------------------------------------- components --- */
@@ -598,12 +581,6 @@
   }
   .lede em { font-style: normal; color: var(--accent); }
 
-  .hero__sub {
-    max-width: 52ch;
-    margin-block-start: 1.1rem;
-    color: var(--mute);
-    font-size: var(--t-small);
-  }
 
   /* ---- the field ------------------------------------------------------- */
   .field { margin-block-start: clamp(2.25rem, 6vw, 4.5rem); }
@@ -768,12 +745,6 @@
     max-width: 18ch;
     text-wrap: balance;
   }
-  .head__p {
-    margin-block-start: 1rem;
-    max-width: 56ch;
-    color: var(--mute);
-    text-wrap: pretty;
-  }
 
   /* ---- figures (the four numbers) -------------------------------------- */
   .figs {
@@ -815,22 +786,6 @@
     text-wrap: pretty;
   }
 
-  /* ---- disclosure ------------------------------------------------------ */
-  .disc {
-    border: 1px solid var(--rule);
-    border-inline-start: 2px solid var(--accent);
-    background: var(--card);
-    padding: clamp(1.1rem, 2.6vw, 1.75rem);
-  }
-  .disc h3 {
-    font-family: var(--face-data);
-    font-size: var(--t-meta);
-    font-weight: 600;
-    letter-spacing: var(--tr-label);
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .disc p { margin-block-start: 0.7rem; max-width: 60ch; text-wrap: pretty; }
 
   /* ---- systems --------------------------------------------------------- */
   .sys + .sys { margin-block-start: clamp(3.5rem, 8vw, 6.5rem); }
@@ -862,14 +817,6 @@
   }
   .tag--reg { border-color: var(--accent); color: var(--accent); }
 
-  .sys__title {
-    font-size: var(--t-h3);
-    font-weight: 600;
-    color: var(--ink);
-    line-height: 1.25;
-    max-width: 30ch;
-  }
-  .sys__lede { margin-block-start: 0.8rem; max-width: 56ch; text-wrap: pretty; }
 
   .did { margin-block-start: clamp(1.5rem, 3vw, 2.25rem); display: grid; gap: 0.8rem; }
   /* Grid and flex would each turn the bare text node after <b> into its own
@@ -1036,8 +983,7 @@
     --ink: #f6f3ee; --body: #ddd8cf; --mute: #a9a296;
     --rule: #2c2925; --rule-2: #454038;
     --accent: #9bb0e8; --accent-ink: #121110; --accent-soft: rgb(155 176 232 / 13%);
-    --alert: #e8836a; --alert-dot: #e0654a;
-    --link: var(--ink); --link-line: var(--accent);
+    --alert: #e8836a;
     --f-neg: rgb(238 231 219 / 26%); --f-neg-key: rgb(238 231 219 / 62%);
     --f-pos: #9bb0e8; --f-fp: #e0654a; --f-line: #f6f3ee;
     --f-wash: rgb(155 176 232 / 7%); --f-miss: rgb(155 176 232 / 52%);
@@ -1051,8 +997,7 @@
     --ink: #121317; --body: #3a4152; --mute: #4e5668;
     --rule: #c9cedb; --rule-2: #aeb6c6;
     --accent: #2440c4; --accent-ink: #ffffff; --accent-soft: rgb(36 64 196 / 8%);
-    --alert: #a32812; --alert-dot: #d93a24;
-    --link: var(--accent); --link-line: var(--accent);
+    --alert: #a32812;
     --f-neg: rgb(18 19 23 / 30%); --f-neg-key: rgb(18 19 23 / 55%);
     --f-pos: #2440c4; --f-fp: #d93a24; --f-line: #121317;
     --f-wash: rgb(36 64 196 / 5.5%); --f-miss: rgb(36 64 196 / 55%);
@@ -1064,8 +1009,7 @@
     --ink: #121317; --body: #3a4152; --mute: #4e5668;
     --rule: #c9cedb; --rule-2: #aeb6c6;
     --accent: #2440c4; --accent-ink: #ffffff; --accent-soft: rgb(36 64 196 / 8%);
-    --alert: #a32812; --alert-dot: #d93a24;
-    --link: var(--accent); --link-line: var(--accent);
+    --alert: #a32812;
     --f-neg: rgb(18 19 23 / 30%); --f-neg-key: rgb(18 19 23 / 55%);
     --f-pos: #2440c4; --f-fp: #d93a24; --f-line: #121317;
     --f-wash: rgb(36 64 196 / 5.5%); --f-miss: rgb(36 64 196 / 55%);
@@ -1283,15 +1227,6 @@
   .foot a:hover { color: var(--ink); }
   .theme { margin-inline-start: auto; }
 
-  .ilink {
-    color: var(--link);
-    text-decoration: underline;
-    text-decoration-color: var(--link-line);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-    transition: text-decoration-thickness var(--dur-fast) var(--ease-enter);
-  }
-  .ilink:hover { text-decoration-thickness: 2px; }
 }
 
 /* -------------------------------------------------------------- motion --- */
@@ -1338,7 +1273,6 @@
 
   /* intro beats. Held back until fonts settle so the first paint is final. */
   .js .hero .eyebrow,
-  .js .hero .hero__sub,
   .js .field,
   .js .bar__in > * {
     opacity: 0;
@@ -1347,12 +1281,10 @@
     transform: translate3d(0, calc(var(--travel) * 0.6), 0);
   }
   .js.is-lit .hero .eyebrow,
-  .js.is-lit .hero .hero__sub,
   .js.is-lit .field,
   .js.is-lit .bar__in > * { opacity: 1; transform: none; }
 
   .js .hero .eyebrow { --delay: 120ms; }
-  .js .hero .hero__sub { --delay: 420ms; }
   .js .field { --delay: 340ms; }
   .js .bar__in > * { --delay: 540ms; }
 
