@@ -51,8 +51,8 @@ assets/
   js/motion.js          reveals, line splitting, the load sequence
   js/app.js             wiring
   favicon.svg
-  Apoorva-Bandi-Resume.pdf     generated, 2 pages
-  Apoorva-Bandi-Resume.docx    your original
+  Apoorva-Bandi-Resume.docx    your original document — this is what the
+                               Résumé buttons download, byte for byte
 docs/
   content.md            every fact on the site, traced to the résumé
   design-plan.md        the design decisions and why each was made
@@ -138,8 +138,13 @@ is present anywhere on this site.
 - **The diagrams** — `assets/js/diagram.js`. Nodes carry a column and row;
   edges name a `from` and `to`. The layout computes itself, so adding a box
   won't misalign anything.
-- **The résumé PDF** — regenerate after editing `resume.html` if you want them
-  to stay in sync. The PDF was built with `fpdf2`.
+- **The résumé** — the download is your original `.docx`, unmodified. Replace
+  `assets/Apoorva-Bandi-Resume.docx` to update it; nothing regenerates it.
+  There is no PDF: converting the real document needs LibreOffice
+  (`brew install --cask libreoffice`, then
+  `soffice --headless --convert-to pdf`), and a PDF built from my own layout
+  would not be your document. Exporting to PDF from Word yourself gives the
+  best fidelity — drop it in `assets/` and point the buttons at it.
 - **Links** — LinkedIn and GitHub are wired up in the nav, the contact block and
   the JSON-LD.
 
