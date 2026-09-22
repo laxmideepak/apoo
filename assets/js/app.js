@@ -11,9 +11,8 @@
 
 const { createField } = AB;
 const { createLatency } = AB;
-const { renderDiagram, HUMANA, MASTERCARD } = AB;
 const { STAGES, ECOSYSTEMS, TOTAL, countIn } = AB;
-const { initReveals, splitAll, runIntro } = AB;
+const { initReveals, runIntro } = AB;
 
 
 /* modules that hold cached colour state and need telling when the theme moves */
@@ -82,33 +81,6 @@ function initCompute() {
     const t = createLatency(top, { invert: true, seed: 4402 });
     repaints.add(() => t.refresh());
   }
-}
-
-/* -------------------------------------------------- the diagrams -------- */
-function initDiagrams() {
-  const specs = { humana: HUMANA, mastercard: MASTERCARD };
-  const figs = $$('[data-arch]');
-
-  for (const fig of figs) {
-    renderDiagram($('[data-arch-host]', fig), specs[fig.dataset.arch]);
-  }
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    figs.forEach((f) => f.classList.add('is-in'));
-    return;
-  }
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        if (!e.isIntersecting) continue;
-        e.target.classList.add('is-in');
-        io.unobserve(e.target);
-      }
-    },
-    { threshold: 0.18 }
-  );
-  figs.forEach((f) => io.observe(f));
 }
 
 /* ------------------------------------------------------- the stack ------ */
@@ -322,31 +294,10 @@ function initTheme() {
   sync();
 }
 
-/* ------------------------------------------------ reading progress ------ */
-function initRail() {
-  const rail = $('.bar__rail');
-  let queued = false;
-  const measure = () => {
-    queued = false;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    rail.style.setProperty('--read', max > 0 ? (window.scrollY / max).toFixed(4) : 0);
-  };
-  const onScroll = () => {
-    if (queued) return;
-    queued = true;
-    requestAnimationFrame(measure);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  measure();
-}
-
 /* ----------------------------------------------------------- boot ------- */
 function boot() {
-  splitAll('[data-lines]');
   initField();
   initCompute();
-  initDiagrams();
   initStack();
   initTicker();
   initCopy();
@@ -354,23 +305,9 @@ function boot() {
   initTheme();
   /* a stylesheet arriving late changes the computed palette too */
   window.addEventListener('load', () => repaints.forEach((fn) => fn()));
-  initRail();
   initReveals();
   runIntro();
 
-  /* re-split the lede when a resize changes where the lines break */
-  let rs;
-  window.addEventListener('resize', () => {
-    clearTimeout(rs);
-    rs = setTimeout(() => {
-      for (const el of $$('[data-lines]')) {
-        el.dataset.split = '';
-        el.classList.remove('is-split');
-        el.textContent = el.textContent.trim();
-      }
-      splitAll('[data-lines]');
-    }, 220);
-  });
 }
 
 if (document.readyState === 'loading') {

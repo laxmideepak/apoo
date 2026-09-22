@@ -82,7 +82,6 @@
       </a>
     </nav>
   </div>
-  <div class="bar__rail" aria-hidden="true"></div>
 </header>
 
 <main id="main">
@@ -106,7 +105,7 @@
       </span>
     </p>
     <div class="hero__row">
-      <p class="lede" data-lines>
+      <p class="lede">
         Machine learning for places where a wrong answer costs money and an
         unexplainable one is not allowed.
       </p>
@@ -224,8 +223,8 @@
         </div>
 
         <div>
-          <figure class="arch" data-arch="humana">
-            <div data-arch-host></div>
+          <figure class="arch">
+            <svg viewBox="0 0 1000 232" role="img" aria-labelledby="arch-humana-t arch-humana-d"><title id="arch-humana-t">Humana platform architecture</title><desc id="arch-humana-d">Claims, clinical events and scanned documents are ingested through Azure Data Factory, Event Hubs and OCR, then land in Databricks and Delta Lake alongside an Azure AI Search vector index. Risk and fraud models run on the lakehouse; a clinical assistant runs on the vector index. Scores are served through FastAPI and Azure Functions into the clinician workspace.</desc><text class="n-col" x="5" y="13" font-size="10.5">INGEST</text><line x1="5" y1="21" x2="225.5" y2="21" stroke="var(--rule)" stroke-width="1"></line><text class="n-col" x="261.5" y="13" font-size="10.5">STORE</text><line x1="261.5" y1="21" x2="482" y2="21" stroke="var(--rule)" stroke-width="1"></line><text class="n-col" x="518" y="13" font-size="10.5">MODEL</text><line x1="518" y1="21" x2="738.5" y2="21" stroke="var(--rule)" stroke-width="1"></line><text class="n-col" x="774.5" y="13" font-size="10.5">SERVE</text><line x1="774.5" y1="21" x2="995" y2="21" stroke="var(--rule)" stroke-width="1"></line><path class="e-path e-path--data" d="M 225.5 119 H 236.5 Q 243.5 119 243.5 112 V 78 Q 243.5 71 250.5 71 H 254.5"></path><path class="e-head e-head--data" d="M 261.5 71 l -7 -3.6 l 0 7.2 z"></path><path class="e-path e-path--data" d="M 225.5 119 H 236.5 Q 243.5 119 243.5 126 V 160 Q 243.5 167 250.5 167 H 254.5"></path><path class="e-head e-head--data" d="M 261.5 167 l -7 -3.6 l 0 7.2 z"></path><path class="e-path" d="M 482 71 H 511"></path><path class="e-head" d="M 518 71 l -7 -3.6 l 0 7.2 z"></path><path class="e-path" d="M 482 167 H 511"></path><path class="e-head" d="M 518 167 l -7 -3.6 l 0 7.2 z"></path><path class="e-path" d="M 738.5 71 H 767.5"></path><path class="e-head" d="M 774.5 71 l -7 -3.6 l 0 7.2 z"></path><path class="e-path" d="M 738.5 167 H 767.5"></path><path class="e-head" d="M 774.5 167 l -7 -3.6 l 0 7.2 z"></path><g><rect class="n-box" x="5" y="34" width="220.5" height="170" rx="2"></rect><text class="n-lab" x="18" y="117" font-size="15">Claims, events &amp; documents</text><text class="n-sub" x="18" y="135" font-size="11.5">Data Factory · Event Hubs · OCR</text></g><g><rect class="n-box" x="261.5" y="34" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="274.5" y="69" font-size="15">Databricks · Delta Lake</text><text class="n-sub" x="274.5" y="87" font-size="11.5">10M+ records a day</text></g><g><rect class="n-box" x="261.5" y="130" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="274.5" y="165" font-size="15">Azure AI Search</text><text class="n-sub" x="274.5" y="183" font-size="11.5">vector index</text></g><g><rect class="n-box n-box--model" x="518" y="34" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="531" y="69" font-size="15">Risk &amp; fraud models</text><text class="n-sub" x="531" y="87" font-size="11.5">Azure ML · XGBoost · LightGBM</text></g><g><rect class="n-box n-box--model" x="518" y="130" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="531" y="165" font-size="15">Clinical assistant</text><text class="n-sub" x="531" y="183" font-size="11.5">Azure OpenAI · LangChain</text></g><g><rect class="n-box" x="774.5" y="34" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="787.5" y="69" font-size="15">Scoring APIs</text><text class="n-sub" x="787.5" y="87" font-size="11.5">FastAPI · Azure Functions</text></g><g><rect class="n-box" x="774.5" y="130" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="787.5" y="165" font-size="15">Clinician workspace</text><text class="n-sub" x="787.5" y="183" font-size="11.5">grounded answers</text></g></svg>
             <figcaption>A reconstruction, not an export.</figcaption>
           </figure>
 
@@ -258,8 +257,8 @@
         </div>
 
         <div>
-          <figure class="arch" data-arch="mastercard">
-            <div data-arch-host></div>
+          <figure class="arch">
+            <svg viewBox="0 0 1000 232" role="img" aria-labelledby="arch-mastercard-t arch-mastercard-d"><title id="arch-mastercard-t">Mastercard transaction architecture</title><desc id="arch-mastercard-d">Card transactions split into a real-time path on Amazon Kinesis and an event-driven batch path on SNS, SQS and Glue. Lambda scorers run fraud and anomaly detection on the stream while Step Functions reconcile CSV, JSON and Parquet datasets. Decisions are served by Spring Boot services on ECS backed by DynamoDB and Redis; reconciled sets land in S3 and RDS.</desc><text class="n-col" x="5" y="13" font-size="10.5">SOURCE</text><line x1="5" y1="21" x2="225.5" y2="21" stroke="var(--rule)" stroke-width="1"></line><text class="n-col" x="261.5" y="13" font-size="10.5">STREAM</text><line x1="261.5" y1="21" x2="482" y2="21" stroke="var(--rule)" stroke-width="1"></line><text class="n-col" x="518" y="13" font-size="10.5">PROCESS</text><line x1="518" y1="21" x2="738.5" y2="21" stroke="var(--rule)" stroke-width="1"></line><text class="n-col" x="774.5" y="13" font-size="10.5">SERVE</text><line x1="774.5" y1="21" x2="995" y2="21" stroke="var(--rule)" stroke-width="1"></line><path class="e-path e-path--data" d="M 225.5 119 H 236.5 Q 243.5 119 243.5 112 V 78 Q 243.5 71 250.5 71 H 254.5"></path><path class="e-head e-head--data" d="M 261.5 71 l -7 -3.6 l 0 7.2 z"></path><path class="e-path e-path--data" d="M 225.5 119 H 236.5 Q 243.5 119 243.5 126 V 160 Q 243.5 167 250.5 167 H 254.5"></path><path class="e-head e-head--data" d="M 261.5 167 l -7 -3.6 l 0 7.2 z"></path><path class="e-path e-path--data" d="M 482 71 H 511"></path><path class="e-head e-head--data" d="M 518 71 l -7 -3.6 l 0 7.2 z"></path><path class="e-path" d="M 482 167 H 511"></path><path class="e-head" d="M 518 167 l -7 -3.6 l 0 7.2 z"></path><path class="e-path e-path--data" d="M 738.5 71 H 767.5"></path><path class="e-head e-head--data" d="M 774.5 71 l -7 -3.6 l 0 7.2 z"></path><path class="e-path" d="M 738.5 167 H 767.5"></path><path class="e-head" d="M 774.5 167 l -7 -3.6 l 0 7.2 z"></path><g><rect class="n-box" x="5" y="34" width="220.5" height="170" rx="2"></rect><text class="n-lab" x="18" y="117" font-size="15">Card transactions</text><text class="n-sub" x="18" y="135" font-size="11.5">authorisation flow</text></g><g><rect class="n-box" x="261.5" y="34" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="274.5" y="69" font-size="15">Amazon Kinesis</text><text class="n-sub" x="274.5" y="87" font-size="11.5">real-time path</text></g><g><rect class="n-box" x="261.5" y="130" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="274.5" y="165" font-size="15">SNS · SQS · Glue</text><text class="n-sub" x="274.5" y="183" font-size="11.5">event-driven batch</text></g><g><rect class="n-box n-box--model" x="518" y="34" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="531" y="69" font-size="15">Fraud scorers</text><text class="n-sub" x="531" y="87" font-size="11.5">Lambda · anomaly + NLP</text></g><g><rect class="n-box" x="518" y="130" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="531" y="165" font-size="15">Step Functions</text><text class="n-sub" x="531" y="183" font-size="11.5">CSV · JSON · Parquet</text></g><g><rect class="n-box" x="774.5" y="34" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="787.5" y="69" font-size="15">Spring Boot on ECS</text><text class="n-sub" x="787.5" y="87" font-size="11.5">DynamoDB · Redis</text></g><g><rect class="n-box" x="774.5" y="130" width="220.5" height="74" rx="2"></rect><text class="n-lab" x="787.5" y="165" font-size="15">Amazon S3 · RDS</text><text class="n-sub" x="787.5" y="183" font-size="11.5">reconciled sets</text></g></svg>
             <figcaption>A reconstruction, not an export.</figcaption>
           </figure>
 
@@ -400,7 +399,6 @@
       <a class="btn" href="assets/Apoorva-Bandi-Resume.docx" download>
         Résumé · Word <span class="btn__x" aria-hidden="true">&darr;</span>
       </a>
-      <a class="btn" href="resume.html">Résumé · web <span class="btn__x" aria-hidden="true">&rarr;</span></a>
       <a class="btn" href="tel:+16823733197">+1 682 373 3197</a>
     </div>
   </div>
@@ -421,7 +419,6 @@
      you double-click it as well as when it is served. -->
 <script defer src="assets/js/field.js"></script>
 <script defer src="assets/js/compute.js"></script>
-<script defer src="assets/js/diagram.js"></script>
 <script defer src="assets/js/stack.js"></script>
 <script defer src="assets/js/motion.js"></script>
 <script defer src="assets/js/app.js"></script>

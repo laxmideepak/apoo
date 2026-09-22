@@ -2,7 +2,7 @@
 'use strict';
 
 /* ---------------------------------------------------------------------------
-   motion.js — reveals, line splitting, and the load sequence.
+   motion.js — reveals and the load sequence.
 
    Rules this file follows:
    · Only transform and opacity animate, so nothing touches layout mid-flight.
@@ -43,55 +43,6 @@ function initReveals() {
   targets.forEach((t) => io.observe(t));
 }
 
-/* ---- line splitting ---------------------------------------------------- */
-/* Wraps each visual line in a clipping box so the line can slide up from
-   under its own baseline. Words are measured after layout, so this respects
-   whatever the real line breaks turned out to be at this viewport. */
-function splitLines(el) {
-  if (el.dataset.split === 'done') return;
-  const source = el.textContent.replace(/\s+/g, ' ').trim();
-  if (!source) return;
-
-  el.dataset.split = 'done';
-  el.textContent = '';
-
-  const words = source.split(' ').map((w) => {
-    const s = document.createElement('span');
-    s.className = 'w';
-    s.textContent = w;
-    el.append(s, document.createTextNode(' '));
-    return s;
-  });
-
-  /* group words by the top edge of their line box */
-  const rows = [];
-  let top = null;
-  for (const w of words) {
-    const t = Math.round(w.getBoundingClientRect().top);
-    if (top === null || Math.abs(t - top) > 3) { rows.push([]); top = t; }
-    rows[rows.length - 1].push(w);
-  }
-
-  el.textContent = '';
-  rows.forEach((row, i) => {
-    const line = document.createElement('span');
-    line.className = 'line';
-    const inner = document.createElement('span');
-    inner.className = 'line-i';
-    inner.style.setProperty('--i', i);
-    inner.textContent = row.map((w) => w.textContent).join(' ');
-    line.append(inner);
-    el.append(line);
-  });
-
-  el.classList.add('is-split');
-  return rows.length;
-}
-
-function splitAll(selector) {
-  document.querySelectorAll(selector).forEach((el) => splitLines(el));
-}
-
 /* Numbers do not animate here, on purpose. A production metric that counts up
    on scroll reads as a SaaS marketing page, which is the opposite of what a
    hard-won 93% should look like. The interactive number on this site is the
@@ -116,6 +67,5 @@ function runIntro() {
 }
 
 AB.initReveals = initReveals;
-AB.splitAll = splitAll;
 AB.runIntro = runIntro;
 })(window.AB = (window.AB || {}));

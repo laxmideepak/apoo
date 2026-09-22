@@ -41,14 +41,11 @@ belongs to someone else.
 
 ```
 index.html              the site
-resume.html             the résumé as a web page — Cmd+F, screen readers, ATS,
-                        and print-to-PDF all work on it
 assets/
   css/app.css           tokens, layout, components, motion — in CSS layers
   js/field.js           the decision-boundary hero
-  js/diagram.js         architecture diagrams, generated from a spec
   js/stack.js           the 104 tools, placed in the ML lifecycle
-  js/motion.js          reveals, line splitting, the load sequence
+  js/motion.js          reveals, the load sequence
   js/app.js             wiring
   favicon.svg
   Apoorva-Bandi-Resume.docx    your original document — this is what the
@@ -64,8 +61,8 @@ docs/
 was invented, inflated or padded. `docs/content.md` traces each one.
 
 **On length.** The page copy is about 660 words, roughly half what it was. The
-detail that was cut still exists in `resume.html` and the PDF, which is where a
-reader who wants all of it should go. There are no photographs anywhere on the
+detail that was cut still lives in the résumé document itself, which is what
+the Résumé buttons download. There are no photographs anywhere on the
 site: NDA work has no screenshots and you asked for no headshot, so every
 visual is generated — the classifier, the two architecture diagrams, the
 ticker and the outcome bars.
@@ -135,9 +132,8 @@ is present anywhere on this site.
 - **The tool list** — `assets/js/stack.js`. Each entry is
   `[label, ecosystem, cited?]`. The third value marks tools named in the two
   systems above, which is what renders them bold. Counts update automatically.
-- **The diagrams** — `assets/js/diagram.js`. Nodes carry a column and row;
-  edges name a `from` and `to`. The layout computes itself, so adding a box
-  won't misalign anything.
+- **The diagrams** — inline `<svg>` in `index.html`. They are static; edit the
+  markup directly.
 - **The résumé** — the download is your original `.docx`, unmodified. Replace
   `assets/Apoorva-Bandi-Resume.docx` to update it; nothing regenerates it.
   There is no PDF: converting the real document needs LibreOffice

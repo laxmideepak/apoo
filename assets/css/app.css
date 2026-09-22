@@ -460,12 +460,6 @@
     .btn:hover .btn__x, .btn:focus-visible .btn__x { transform: none; }
   }
 
-  .bar__rail {
-    height: 1px;
-    background: var(--accent);
-    transform-origin: 0 50%;
-    transform: scaleX(var(--read, 0));
-  }
 
   /* ---- hero ------------------------------------------------------------ */
   .hero {
@@ -1258,19 +1252,6 @@
   .js [data-reveal='fade'] { transform: none; }
   .js [data-reveal].is-in { opacity: 1; transform: none; will-change: auto; }
 
-  /* masked line reveal: each line rises from under its own baseline */
-  .js .is-split .line { display: block; overflow: hidden; }
-  .js .is-split .line-i {
-    display: block;
-    transform: translate3d(0, 105%, 0);
-    transition: transform var(--dur-sig) var(--ease-spatial)
-      calc(var(--i, 0) * 48ms + var(--delay, 0ms));
-  }
-  .js.is-lit .is-split .line-i { transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .js .is-split .line-i { transform: none; }
-  }
-
   /* intro beats. Held back until fonts settle so the first paint is final. */
   .js .hero .eyebrow,
   .js .field,
@@ -1287,19 +1268,4 @@
   .js .hero .eyebrow { --delay: 120ms; }
   .js .field { --delay: 340ms; }
   .js .bar__in > * { --delay: 540ms; }
-
-  /* the diagram's data path traces itself once, on entry */
-  .js .arch .e-path {
-    stroke-dasharray: var(--len, 400);
-    stroke-dashoffset: var(--len, 400);
-    transition: stroke-dashoffset var(--dur-sig) var(--ease-enter)
-      calc(var(--i, 0) * 44ms);
-  }
-  .arch.is-in .e-path { stroke-dashoffset: 0; }
-  .js .arch .e-head { opacity: 0; transition: opacity var(--dur-base) linear calc(var(--i, 0) * 44ms + 300ms); }
-  .arch.is-in .e-head { opacity: 1; }
-  @media (prefers-reduced-motion: reduce) {
-    .js .arch .e-path { stroke-dashoffset: 0; }
-    .js .arch .e-head { opacity: 1; }
-  }
 }
