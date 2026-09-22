@@ -76,6 +76,12 @@ function initCompute() {
     const b = createLatency(foot);
     repaints.add(() => b.refresh());
   }
+  /* the same histogram heading the page, hanging from the top */
+  const top = $('.compute--top');
+  if (top && createLatency) {
+    const t = createLatency(top, { invert: true, seed: 4402 });
+    repaints.add(() => t.refresh());
+  }
 }
 
 /* -------------------------------------------------- the diagrams -------- */

@@ -485,7 +485,46 @@
   }
 
   /* ---- hero ------------------------------------------------------------ */
-  .hero { padding-block-start: clamp(2.5rem, 7vw, 6rem); }
+  .hero {
+    position: relative;
+    isolation: isolate;
+    padding-block-start: clamp(2.5rem, 7vw, 6rem);
+  }
+
+  /* The lede and the histogram share a row. Absolute positioning could not
+     work here: the name rewraps between one and two lines depending on the
+     viewport, so anything placed by a fixed offset eventually lands on top of
+     it. In flow, a collision is impossible. */
+  .hero__row {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: end;
+    margin-block-start: clamp(1.6rem, 3.4vw, 2.6rem);
+  }
+  @media (min-width: 62rem) {
+    .hero__row { grid-template-columns: minmax(0, 34rem) minmax(0, 1fr); }
+  }
+  .hero__row .lede { margin-block-start: 0; }
+
+  /* The contact band's histogram, repeated at the head of the page and turned
+     upside down: bars hang from the ceiling rather than standing on the floor.
+     Same engine, same data, same colours — one gesture bracketing the page. */
+  /* Scoped to the row so it beats the shared .compute base regardless of
+     source order — that base is absolutely positioned, which would size this
+     to the whole hero and push the page into horizontal overflow. */
+  .hero__row .compute--top {
+    position: relative;
+    z-index: auto;
+    width: 100%;
+    height: clamp(6rem, 10vw, 9rem);
+    pointer-events: none;
+    --c-idle: var(--rule-2);
+    --c-live: var(--accent);
+    opacity: 0.8;
+    -webkit-mask-image: linear-gradient(#000 45%, transparent);
+    mask-image: linear-gradient(#000 45%, transparent);
+  }
+  @media (max-width: 48rem) { .compute--top { display: none; } }
 
   /* shared base for ambient canvas layers */
   .compute {

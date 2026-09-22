@@ -89,7 +89,7 @@ function readVars(canvas, names) {
 
 /* ============================================================== latency === */
 function createLatency(canvas, options) {
-  const cfg = Object.assign({ seed: 7731, fps: 20, bars: 72, pitch: 9 }, options || {});
+  const cfg = Object.assign({ seed: 7731, fps: 20, bars: 72, pitch: 9, invert: false }, options || {});
   const rnd = prng(cfg.seed);
 
   /* Log-normal: the distribution response times genuinely follow — a dense
@@ -136,11 +136,14 @@ function createLatency(canvas, options) {
       const v = vals[vals.length - n + i];
       const bh = Math.max(2, (v / max) * H * 0.82);
       ctx.fillStyle = v >= cut ? pal.live : pal.idle;
-      ctx.fillRect(i * cfg.pitch, H - bh, bw, bh);
+      /* inverted: the bars hang from the ceiling instead of standing on the
+         floor, so the same histogram can head the page and foot it */
+      ctx.fillRect(i * cfg.pitch, cfg.invert ? 0 : H - bh, bw, bh);
     }
 
     /* the p95 line, computed from the bars on screen */
-    const y = H - (cut / max) * H * 0.82;
+    const p = (cut / max) * H * 0.82;
+    const y = cfg.invert ? p : H - p;
     ctx.strokeStyle = pal.live;
     ctx.globalAlpha = 0.55;
     ctx.setLineDash([3, 4]);
