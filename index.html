@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apoorva Bandi — AI/ML Engineer</title>
+<meta name="description" content="AI/ML engineer with five years of production machine learning in regulated environments: patient risk and payer fraud at Humana under HIPAA, transaction services and real-time fraud detection at Mastercard under PCI-DSS.">
+<meta name="author" content="Apoorva Bandi">
+<meta name="theme-color" content="#e9ecf2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f131a" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://apoorvabandi.com/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Apoorva Bandi — AI/ML Engineer">
+<meta property="og:description" content="Machine learning for places where a wrong answer costs money and an unexplainable one is not allowed.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@100..800&display=swap">
+<link rel="stylesheet" href="assets/css/app.css">
+
+<script>
+  /* Every hidden-until-revealed state in the stylesheet is scoped under .js,
+     so a visitor with scripting off — or one who hits a script error — gets
+     the finished page rather than an empty one. Setting the theme here too
+     avoids a flash of the wrong ground colour. */
+  (function () {
+    var r = document.documentElement;
+    r.classList.add('js');
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || t === 'light') r.dataset.theme = t;
+    } catch (e) {}
+    setTimeout(function () { r.classList.add('is-ready', 'is-lit'); }, 2200);
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Apoorva Bandi",
+  "jobTitle": "AI/ML Engineer",
+  "email": "mailto:bandiapoorva1@gmail.com",
+  "telephone": "+1-682-373-3197",
+  "url": "https://apoorvabandi.com/",
+  "sameAs": [
+    "https://www.linkedin.com/in/apoorvabandi/",
+    "https://github.com/bandiapoorva1"
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Texas at Arlington"
+  },
+  "knowsAbout": [
+    "Machine learning engineering", "MLOps", "Retrieval-augmented generation",
+    "Fraud detection", "Healthcare analytics", "Microsoft Azure", "AWS"
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="shell bar__in">
+    <a class="bar__mark" href="#top">Apoorva Bandi</a>
+    <p class="bar__meta" id="bar-meta">
+      <span id="meta-loc"></span><span id="meta-time">—</span><span id="meta-temp" hidden></span>
+    </p>
+    <nav class="bar__nav" aria-label="Sections">
+      <a class="bar__link bar__link--opt" href="#systems">Systems</a>
+      <a class="bar__link bar__link--opt" href="#capability">Capability</a>
+      <a class="bar__link bar__link--opt" href="#positions">Positions</a>
+      <a class="bar__link bar__link--opt" href="#contact">Contact</a>
+      <a class="btn btn--solid" href="assets/Apoorva-Bandi-Resume.pdf" target="_blank" rel="noopener">
+        Résumé <span class="btn__x" aria-hidden="true">↓</span>
+      </a>
+    </nav>
+  </div>
+  <div class="bar__rail" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================ hero -- -->
+<section class="hero band" id="top">
+  <div class="shell">
+    <p class="eyebrow">Healthcare and payments</p>
+    <h1 class="name">Apoorva Bandi</h1>
+
+    <p class="roles">
+      <span class="vh">AI Engineer, ML Engineer, MLOps Engineer, Data Engineer</span>
+      <span class="roles__mask" aria-hidden="true">
+        <span class="roles__list">
+          <span>AI Engineer</span>
+          <span>ML Engineer</span>
+          <span>MLOps Engineer</span>
+          <span>Data Engineer</span>
+          <span>AI Engineer</span>
+        </span>
+      </span>
+    </p>
+    <p class="lede" data-lines>
+      Machine learning for places where a wrong answer costs money and an
+      unexplainable one is not allowed.
+    </p>
+  </div>
+
+  <div class="shell">
+    <figure class="field" id="field">
+      <div class="field__frame">
+        <canvas class="field__cv" aria-hidden="true"></canvas>
+        <div class="field__legend">
+          <span class="key" style="--key: var(--f-neg-key)">Legitimate</span>
+          <span class="key" style="--key: var(--f-pos)">Fraudulent</span>
+          <span class="key" style="--key: var(--f-fp)">Flagged in error</span>
+          <span class="key key--miss">Missed</span>
+        </div>
+      </div>
+
+      <div class="thr">
+        <div class="thr__lab">
+          <label for="thr-input">Decision threshold</label>
+          <span id="thr-hint">Drag the rule, or use the arrow keys</span>
+        </div>
+        <input id="thr-input" type="range" min="0.02" max="0.98" step="0.005"
+               value="0.59" aria-describedby="thr-hint thr-live">
+      </div>
+
+      <dl class="readout" id="readout">
+        <div><dt>Threshold</dt><dd data-role="threshold">0.590</dd></div>
+        <div><dt>Precision</dt><dd data-role="precision">93.0%</dd></div>
+        <div><dt>Recall</dt><dd data-role="recall">91.6%</dd></div>
+        <div><dt>Flagged</dt><dd data-role="flagged">187</dd></div>
+        <div><dt>Missed</dt><dd data-role="missed">16</dd></div>
+      </dl>
+      <p class="verdict" id="verdict">
+        At this threshold 187 of 2,390 records go to review, 13 of them
+        needlessly — and 16 fraudulent ones do not.
+      </p>
+      <p class="vh" id="thr-live" role="status" aria-live="polite"></p>
+
+      <figcaption class="note">
+        A live classifier. Move the rule and watch precision trade against
+        recall. Opens at 93% — the figure from the fraud work. Distributions are
+        synthetic; the 93% is not.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ========================================================= outcomes -- -->
+<section class="sec band" aria-labelledby="outcomes-h">
+  <div class="shell">
+    <div class="head">
+      <span class="head__k">Outcomes</span>
+      <h2 class="h2" id="outcomes-h">What changed</h2>
+    </div>
+
+    <div class="figs" data-reveal-group>
+      <div class="fig" data-reveal>
+        <span class="fig__n">93%</span>
+        <span class="fig__l">Fraud precision</span>
+        <span class="fig__bar" aria-hidden="true">
+          <span style="--h:100%"></span><span style="--h:93%"></span>
+        </span>
+        <span class="fig__p">Payer-claim and card-transaction models in production.</span>
+      </div>
+      <div class="fig" data-reveal>
+        <span class="fig__n">+34%</span>
+        <span class="fig__l">High-risk patient detection</span>
+        <span class="fig__bar" aria-hidden="true">
+          <span style="--h:74%"></span><span style="--h:100%"></span>
+        </span>
+        <span class="fig__p">Against the prior baseline at Humana, on Azure ML.</span>
+      </div>
+      <div class="fig" data-reveal>
+        <span class="fig__n">&minus;50%</span>
+        <span class="fig__l">Chart review time</span>
+        <span class="fig__bar" aria-hidden="true">
+          <span style="--h:100%"></span><span style="--h:50%"></span>
+        </span>
+        <span class="fig__p">Clinicians reading histories through a retrieval assistant.</span>
+      </div>
+      <div class="fig" data-reveal>
+        <span class="fig__n">10M+</span>
+        <span class="fig__l">Records a day</span>
+        <span class="fig__bar fig__bar--unit" aria-hidden="true">
+          <span style="--h:100%"></span><span style="--h:100%"></span><span style="--h:100%"></span>
+          <span style="--h:100%"></span><span style="--h:100%"></span><span style="--h:100%"></span>
+          <span style="--h:100%"></span><span style="--h:100%"></span><span style="--h:100%"></span>
+          <span style="--h:100%"></span><em>1 mark = 1M</em>
+        </span>
+        <span class="fig__p">Batch and streaming, Data Factory through Delta Lake.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= systems -- -->
+<section class="sec band band--invert" id="systems" aria-labelledby="systems-h">
+  <div class="shell">
+    <div class="head">
+      <span class="head__k">Systems</span>
+      <h2 class="h2" id="systems-h">Two regulated environments</h2>
+    </div>
+
+    <article class="sys">
+      <div class="row">
+        <div class="chan chan--sticky">
+          <span class="sys__org">Humana</span>
+          <span>AI/ML Engineer</span>
+          <span>Jan 2024 — Present</span>
+          <span class="tag">Healthcare payer</span>
+          <span class="tag tag--reg">HIPAA</span>
+        </div>
+
+        <div>
+          <figure class="arch" data-arch="humana">
+            <div data-arch-host></div>
+            <figcaption>A reconstruction, not an export.</figcaption>
+          </figure>
+
+          <ul class="did">
+            <li><b>Patient risk classification</b> on Azure ML — 34% better detection.</li>
+            <li><b>Payer-fraud models</b> on XGBoost and LightGBM, inside the claim-review workflow.</li>
+            <li><b>Clinical assistant</b> on Azure OpenAI and LangChain — chart review halved.</li>
+            <li><b>Retrieval</b> over policy and clinical SOPs through Azure AI Search.</li>
+            <li><b>Governed MLOps</b> on MLflow, Azure DevOps and Terraform — versioning, rollback, audit.</li>
+          </ul>
+
+          <dl class="constr">
+            <div><dt>Regulatory</dt><dd>HIPAA controls, audit logging, documented rollback</dd></div>
+            <div><dt>Explainability</dt><dd>Every score traceable to feature attributions</dd></div>
+            <div><dt>Scale</dt><dd>10M+ records a day</dd></div>
+            <div><dt>Reproducibility</dt><dd>Versioned models and artifacts</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <article class="sys">
+      <div class="row">
+        <div class="chan chan--sticky">
+          <span class="sys__org">Mastercard</span>
+          <span>Software Engineer</span>
+          <span>Aug 2021 — Jul 2023</span>
+          <span class="tag">Card payments</span>
+          <span class="tag tag--reg">PCI-DSS</span>
+        </div>
+
+        <div>
+          <figure class="arch" data-arch="mastercard">
+            <div data-arch-host></div>
+            <figcaption>A reconstruction, not an export.</figcaption>
+          </figure>
+
+          <ul class="did">
+            <li><b>Transaction microservices</b> on ECS, Lambda and Spring Boot — 40% less downtime.</li>
+            <li><b>Real-time fraud detection</b> on Kinesis, Lambda and DynamoDB.</li>
+            <li><b>Legacy batch rebuilt</b> as event-driven serverless — down to a 45-minute run.</li>
+            <li><b>PCI-DSS environments</b> through IAM, VPC, KMS and audit logging.</li>
+            <li><b>Fraud models as REST APIs</b>, scoring inline with the transaction.</li>
+          </ul>
+
+          <dl class="constr">
+            <div><dt>Regulatory</dt><dd>PCI-DSS, encryption in transit and at rest</dd></div>
+            <div><dt>Latency</dt><dd>Inside the authorisation path — 30% off p95</dd></div>
+            <div><dt>Reliability</dt><dd>40% less downtime</dd></div>
+            <div><dt>Load</dt><dd>A continuous stream, not a nightly window</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="ticker" id="ticker-a" aria-hidden="true"><div class="ticker__row"></div></div>
+  <div class="ticker ticker--rev" id="ticker-b" aria-hidden="true"><div class="ticker__row"></div></div>
+</section>
+
+<!-- ====================================================== capability -- -->
+<section class="sec band" id="capability" aria-labelledby="cap-h">
+  <div class="shell">
+    <div class="head">
+      <span class="head__k">Capability</span>
+      <h2 class="h2" id="cap-h">104 tools, placed where they sit</h2>
+    </div>
+
+    <div class="row">
+      <div class="chan chan--sticky">
+        <div class="filters" id="filters" role="group" aria-label="Filter by ecosystem"></div>
+        <p class="chan__note"><b>Bold</b> marks the 58 named in the systems above.</p>
+        <p class="vh" id="filter-live" role="status" aria-live="polite"></p>
+      </div>
+      <div id="stages"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= positions -- -->
+<section class="sec band" id="positions" aria-labelledby="pos-h">
+  <div class="shell">
+    <div class="head">
+      <span class="head__k">Positions</span>
+      <h2 class="h2" id="pos-h">What I think, and what would change it</h2>
+    </div>
+
+    <div class="row">
+      <div class="chan chan--sticky">
+        <span class="chan__lab">As of</span>
+        <span>September 2026</span>
+      </div>
+
+      <div class="positions">
+        <article class="pos">
+          <h3 class="pos__h">An eval you cannot re-run next quarter is not an eval.</h3>
+          <p>
+            Golden sets drift, annotators disagree with their own past selves, and
+            a benchmark living in a notebook dies with the kernel. Version it with
+            the model, run it on a schedule, leave an artifact a reviewer can open.
+          </p>
+          <p class="pos__x">
+            <b>What would change my mind:</b> a judge model holding agreement with
+            expert reviewers across a year of drift, without recalibration.
+          </p>
+        </article>
+
+        <article class="pos">
+          <h3 class="pos__h">Most agent loops are retry loops with better branding.</h3>
+          <p>
+            A loop that calls tools until satisfied can spend unbounded money and
+            take unbounded actions. The engineering is the stopping condition, the
+            budget and the replay trail — not the planning.
+          </p>
+          <p class="pos__x">
+            <b>What would change my mind:</b> frameworks treating the transcript as
+            a replayable artifact the way MLflow treats a training run.
+          </p>
+        </article>
+
+        <article class="pos">
+          <h3 class="pos__h">Retrieval is a ranking problem wearing a generation costume.</h3>
+          <p>
+            If the right passage is not in the top-k, no prompt work saves the
+            answer — it just makes the wrong one fluent. Measure recall@k first.
+            Keep lexical search: exact codes are where embeddings are weakest.
+          </p>
+          <p class="pos__x">
+            <b>What would change my mind:</b> long context making retrieval quality
+            irrelevant at enterprise corpus sizes. The cost curve says otherwise.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= education -- -->
+<section class="sec sec--tight band" aria-labelledby="edu-h">
+  <div class="shell">
+    <div class="row">
+      <div class="chan"><span class="chan__lab">Education</span></div>
+      <div class="edu">
+        <h2 class="edu__d" id="edu-h">MS, Computer Science</h2>
+        <p class="edu__s">University of Texas at Arlington</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== close -- -->
+<section class="sec band band--invert" id="contact" aria-labelledby="close-h">
+  <canvas class="compute compute--latency" aria-hidden="true"></canvas>
+
+  <div class="shell">
+    <h2 class="close__h" id="close-h">Building ML that has to hold up under review?</h2>
+
+    <div class="links">
+      <a class="btn btn--solid" href="mailto:bandiapoorva1@gmail.com">
+        Start a conversation <span class="btn__x" aria-hidden="true">&rarr;</span>
+      </a>
+      <button class="btn copy" type="button" data-copy="bandiapoorva1@gmail.com">
+        bandiapoorva1@gmail.com <span class="btn__x" aria-hidden="true">&#10697;</span>
+        <span class="copy__said" aria-hidden="true">Copied</span>
+      </button>
+      <a class="btn" href="https://www.linkedin.com/in/apoorvabandi/" target="_blank" rel="noopener me">
+        LinkedIn <span class="btn__x" aria-hidden="true">&#8599;</span>
+      </a>
+      <a class="btn" href="https://github.com/bandiapoorva1" target="_blank" rel="noopener me">
+        GitHub <span class="btn__x" aria-hidden="true">&#8599;</span>
+      </a>
+      <a class="btn" href="assets/Apoorva-Bandi-Resume.pdf" target="_blank" rel="noopener">
+        Résumé · PDF <span class="btn__x" aria-hidden="true">&darr;</span>
+      </a>
+      <a class="btn" href="resume.html">Résumé · web <span class="btn__x" aria-hidden="true">&rarr;</span></a>
+      <a class="btn" href="tel:+16823733197">+1 682 373 3197</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="shell foot">
+  <span>Apoorva Bandi — AI/ML Engineer</span>
+  <span>Built as a static page. No framework, no build step, no dependencies.</span>
+  <button class="theme" type="button" id="theme" aria-pressed="false">
+    <span id="theme-label">Dark</span>
+  </button>
+</footer>
+
+<!-- Classic scripts, loaded in dependency order. Deliberately not ES modules:
+     browsers block module loading over file://, and this page should work when
+     you double-click it as well as when it is served. -->
+<script defer src="assets/js/field.js"></script>
+<script defer src="assets/js/compute.js"></script>
+<script defer src="assets/js/diagram.js"></script>
+<script defer src="assets/js/stack.js"></script>
+<script defer src="assets/js/motion.js"></script>
+<script defer src="assets/js/app.js"></script>
+</body>
+</html>
